@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+</head>
+
+<body>
+    <div class="mermaid">
+        flowchart TB
+  manual_commander_node["**manual_commander_node**"]
+  simple_text_commander_node[\"**simple_text_commander_node**"/]
+  so100_mujoco_client_node[/"**so100_mujoco_client_node**"\]
+subgraph ___dora___ [dora]
+  subgraph ___timer_timer___ [timer]
+    dora/timer/millis/20[\millis/20/]
+  end
+end
+  simple_text_commander_node -- text_command as received_text_command --> manual_commander_node
+  dora/timer/millis/20 -- tick --> so100_mujoco_client_node
+  manual_commander_node -- goal_position as write_goal_position --> so100_mujoco_client_node
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({ startOnLoad: true, securityLevel: 'loose', theme: 'base' });
+    </script>
+</body>
+
+</html>

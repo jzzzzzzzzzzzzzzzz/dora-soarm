@@ -1,0 +1,37 @@
+# nodes/so100_mujoco_client/pyproject.toml
+
+[project]
+name = "so100-mujoco-client"
+version = "0.1.0"
+authors = [{ name = "Your Name", email = "you@example.com"}]
+description = "Dora Node client for SO-ARM100 MuJoCo simulation."
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "Apache-2.0" }
+
+dependencies = [
+  "dora-rs == 0.3.11",
+  "mujoco ~= 3.3.0",
+  "PyOpenGL ~= 3.1.1a1",
+  "numpy >= 1.20",
+  "pyarrow >= 10.0"
+]
+
+[project.scripts]
+so100-mujoco-client = "main:main"
+
+# --- 添加这个部分告诉 Poetry 如何找到代码 ---
+[tool.poetry]
+packages = [
+    # 明确指出 main.py 包含了这个包的代码
+    { include = "main.py" }
+]
+# --- 添加结束 ---
+
+[build-system]
+requires = ["poetry-core>=1.8.0"]
+build-backend = "poetry.core.masonry.api"
+
+# 可选：添加 Ruff linter 配置
+# [tool.ruff.lint]
+# extend-select = ["D", "UP", "PERF", "RET", "RSE", "NPY", "N", "I"]

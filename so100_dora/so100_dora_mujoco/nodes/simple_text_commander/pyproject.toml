@@ -1,0 +1,18 @@
+# nodes/simple_text_commander/pyproject.toml
+[project]
+name = "simple-text-commander" # 包名
+version = "0.1.0"
+# ... authors, description, etc. ...
+dependencies = [
+  "dora-rs >= 0.3.5", # 或你的版本
+  "pyarrow >= 10.0",
+  # "click >= 8.0" # 如果用 click
+]
+[project.scripts]
+# 这个脚本名将是我们手动运行的命令
+simple-text-commander-run = "simple_text_commander.main:main" # 改个名以区分包名
+[tool.poetry]
+packages = [ { include = "simple_text_commander" } ] # 指向包含 __init__.py 的目录
+[build-system]
+requires = ["poetry-core>=1.8.0"]
+build-backend = "poetry.core.masonry.api"

@@ -1,0 +1,10 @@
+# graphs/test_mujoco_read.yml
+nodes:
+  - id: so100_mujoco_client_node
+    # build 命令仍然需要，以确保依赖 (dora-rs, mujoco 等) 安装在 testagent 环境中
+    build: pip install -e ../nodes/so100_mujoco_client
+    # 直接指定 Conda 环境的 Python 解释器和脚本的相对路径
+    path: ../nodes/so100_mujoco_client/main.py
+    # env: # 暂时不需要
+    inputs:
+      tick: dora/timer/millis/500

@@ -1,0 +1,20 @@
+# graphs/test_mujoco_write.yml
+nodes:
+  - id: manual_commander_node
+    build: pip install -e ../nodes/manual_commander
+    path: ../nodes/manual_commander/main.py # 使用完整路径
+    # inputs:
+    #   manual_command_trigger: {} # 开放端点，等待 dora input
+    outputs:
+      - goal_position
+
+  - id: so100_mujoco_client_node
+    build: pip install -e ../nodes/so100_mujoco_client
+    path: ../nodes/so100_mujoco_client/main.py # 使用完整路径
+    env:
+      SCENE: ../models/so_arm100_scene_combined.xml
+      CONFIG: ../configs/so100_config.json
+    inputs:
+      tick: dora/timer/millis/20
+      write_goal_position: manual_commander_node/goal_position # 从 manual_commander 接收
+    outputs: []

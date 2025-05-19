@@ -1,0 +1,35 @@
+# nodes/so100_planner/pyproject.toml
+[project]
+name = "so100-planner"
+version = "0.1.0"
+authors = [{ name = "Your Name", email = "you@example.com"}]
+description = "Dora Node for SO-ARM100 path planning using IKPy."
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "Apache-2.0" }
+
+
+dependencies = [
+  "dora-rs >= 0.3.5", # 或你的版本
+  "pyarrow >= 10.0",
+  "numpy >= 1.20",
+  "ikpy >= 1.4.0", # 添加 ikpy
+  "scipy",          # ikpy 的依赖
+  "sympy >= 1.9", # <--- 显式添加 sympy，版本可以根据需要调整 
+  "pyroboplan >= 1.2.0"
+]
+
+[project.scripts]
+# 这个脚本名可以被 path: dynamic 使用，或者我们直接指定 python .../main.py
+so100-planner-run = "so100_planner.main:main"
+
+[tool.poetry]
+packages = [ { include = "so100_planner" } ]
+
+[[tool.poetry.source]]
+name = "tsinghua"
+url = "https://pypi.tuna.tsinghua.edu.cn/simple/"
+
+[build-system]
+requires = ["poetry-core>=1.8.0"]
+build-backend = "poetry.core.masonry.api"

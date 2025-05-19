@@ -1,0 +1,43 @@
+INFO (Planner Main): CWD: /home/jzzz/so100_dora/so100_dora_mujoco/graphs
+INFO (Planner Main): URDF: '../models/urdf/SO_5DOF_ARM100_8j_URDF.SLDASM.urdf', EE: 'Fixed_Jaw'
+INFO (Planner Main): Joint Config for Planner: '../configs/so100_config.json'
+INFO (so100_planner_node): Initializing planner with Pinocchio and PyRoboPlan DifferentialIK.
+INFO (so100_planner_node): Loading URDF from: ../models/urdf/SO_5DOF_ARM100_8j_URDF.SLDASM.urdf
+Attempting to load URDF using pinocchio (version 3.4.0)...
+INFO (so100_planner_node): Pinocchio model loaded successfully using pinocchio.buildModelFromUrdf. Name: SO_5DOF_ARM100_8j_URDF.SLDASM
+INFO (so100_planner_node): nq (config size): 6, nv (velocity size): 6
+INFO (so100_planner_node): MuJoCo arm joint names for IK mapping: ['Rotation', 'Pitch', 'Elbow', 'Wrist_Pitch', 'Wrist_Roll']
+INFO (so100_planner_node): Pinocchio q_vector indices for arm joints: [0, 1, 2, 3, 4]
+INFO (so100_planner_node): PyRoboPlan DifferentialIk solver created for EE: 'Fixed_Jaw'.
+INFO (so100_planner_node): End-effector frame 'Fixed_Jaw' found in Pinocchio model.
+INFO (so100_planner_node): Planner run loop started.
+[2m2025-05-13T16:10:14.655919Z[0m [33m WARN[0m [2mdora_node_api::event_stream::thread[0m[2m:[0m failed to update HLC: incoming timestamp from 8BEE45A8B42C4209BC5B9D6FA95B8ED6 exceeding delta 500ms is rejected: 2025-05-13T16:10:17.051461411Z vs. now: 2025-05-13T16:10:14.655895575Z
+[2m2025-05-13T16:10:14.756650Z[0m [33m WARN[0m [2mdora_node_api::event_stream::thread[0m[2m:[0m failed to update HLC: incoming timestamp from 8BEE45A8B42C4209BC5B9D6FA95B8ED6 exceeding delta 500ms is rejected: 2025-05-13T16:10:17.051461413Z vs. now: 2025-05-13T16:10:14.756636552Z
+[2m2025-05-13T16:10:14.856305Z[0m [33m WARN[0m [2mdora_node_api::event_stream::thread[0m[2m:[0m failed to update HLC: incoming timestamp from 8BEE45A8B42C4209BC5B9D6FA95B8ED6 exceeding delta 500ms is rejected: 2025-05-13T16:10:17.051461415Z vs. now: 2025-05-13T16:10:14.856296826Z
+[2m2025-05-13T16:10:14.956910Z[0m [33m WARN[0m [2mdora_node_api::event_stream::thread[0m[2m:[0m failed to update HLC: incoming timestamp from 8BEE45A8B42C4209BC5B9D6FA95B8ED6 exceeding delta 500ms is rejected: 2025-05-13T16:10:17.051461416Z vs. now: 2025-05-13T16:10:14.956902205Z
+[2m2025-05-13T16:10:15.057237Z[0m [33m WARN[0m [2mdora_node_api::event_stream::thread[0m[2m:[0m failed to update HLC: incoming timestamp from 8BEE45A8B42C4209BC5B9D6FA95B8ED6 exceeding delta 500ms is rejected: 2025-05-13T16:10:17.051461418Z vs. now: 2025-05-13T16:10:15.057219535Z
+[2m2025-05-13T16:10:15.155251Z[0m [33m WARN[0m [2mdora_node_api::event_stream::thread[0m[2m:[0m failed to update HLC: incoming timestamp from 8BEE45A8B42C4209BC5B9D6FA95B8ED6 exceeding delta 500ms is rejected: 2025-05-13T16:10:17.051461420Z vs. now: 2025-05-13T16:10:15.155244056Z
+[2m2025-05-13T16:10:15.255293Z[0m [33m WARN[0m [2mdora_node_api::event_stream::thread[0m[2m:[0m failed to update HLC: incoming timestamp from 8BEE45A8B42C4209BC5B9D6FA95B8ED6 exceeding delta 500ms is rejected: 2025-05-13T16:10:17.051461422Z vs. now: 2025-05-13T16:10:15.255285918Z
+[2m2025-05-13T16:10:15.354977Z[0m [33m WARN[0m [2mdora_node_api::event_stream::thread[0m[2m:[0m failed to update HLC: incoming timestamp from 8BEE45A8B42C4209BC5B9D6FA95B8ED6 exceeding delta 500ms is rejected: 2025-05-13T16:10:17.051461424Z vs. now: 2025-05-13T16:10:15.354969020Z
+[2m2025-05-13T16:10:15.456387Z[0m [33m WARN[0m [2mdora_node_api::event_stream::thread[0m[2m:[0m failed to update HLC: incoming timestamp from 8BEE45A8B42C4209BC5B9D6FA95B8ED6 exceeding delta 500ms is rejected: 2025-05-13T16:10:17.051461426Z vs. now: 2025-05-13T16:10:15.456380218Z
+[2m2025-05-13T16:10:15.556492Z[0m [33m WARN[0m [2mdora_node_api::event_stream::thread[0m[2m:[0m failed to update HLC: incoming timestamp from 8BEE45A8B42C4209BC5B9D6FA95B8ED6 exceeding delta 500ms is rejected: 2025-05-13T16:10:17.051461428Z vs. now: 2025-05-13T16:10:15.556477420Z
+[2m2025-05-13T16:10:15.655972Z[0m [33m WARN[0m [2mdora_node_api::event_stream::thread[0m[2m:[0m failed to update HLC: incoming timestamp from 8BEE45A8B42C4209BC5B9D6FA95B8ED6 exceeding delta 500ms is rejected: 2025-05-13T16:10:17.051461430Z vs. now: 2025-05-13T16:10:15.655964501Z
+[2m2025-05-13T16:10:15.756482Z[0m [33m WARN[0m [2mdora_node_api::event_stream::thread[0m[2m:[0m failed to update HLC: incoming timestamp from 8BEE45A8B42C4209BC5B9D6FA95B8ED6 exceeding delta 500ms is rejected: 2025-05-13T16:10:17.051461431Z vs. now: 2025-05-13T16:10:15.756474707Z
+[2m2025-05-13T16:10:15.856354Z[0m [33m WARN[0m [2mdora_node_api::event_stream::thread[0m[2m:[0m failed to update HLC: incoming timestamp from 8BEE45A8B42C4209BC5B9D6FA95B8ED6 exceeding delta 500ms is rejected: 2025-05-13T16:10:17.051461433Z vs. now: 2025-05-13T16:10:15.856339100Z
+[2m2025-05-13T16:10:15.954930Z[0m [33m WARN[0m [2mdora_node_api::event_stream::thread[0m[2m:[0m failed to update HLC: incoming timestamp from 8BEE45A8B42C4209BC5B9D6FA95B8ED6 exceeding delta 500ms is rejected: 2025-05-13T16:10:17.051461435Z vs. now: 2025-05-13T16:10:15.954922005Z
+[2m2025-05-13T16:10:16.056071Z[0m [33m WARN[0m [2mdora_node_api::event_stream::thread[0m[2m:[0m failed to update HLC: incoming timestamp from 8BEE45A8B42C4209BC5B9D6FA95B8ED6 exceeding delta 500ms is rejected: 2025-05-13T16:10:17.051461437Z vs. now: 2025-05-13T16:10:16.056063435Z
+[2m2025-05-13T16:10:16.156033Z[0m [33m WARN[0m [2mdora_node_api::event_stream::thread[0m[2m:[0m failed to update HLC: incoming timestamp from 8BEE45A8B42C4209BC5B9D6FA95B8ED6 exceeding delta 500ms is rejected: 2025-05-13T16:10:17.051461439Z vs. now: 2025-05-13T16:10:16.156019035Z
+[2m2025-05-13T16:10:16.257121Z[0m [33m WARN[0m [2mdora_node_api::event_stream::thread[0m[2m:[0m failed to update HLC: incoming timestamp from 8BEE45A8B42C4209BC5B9D6FA95B8ED6 exceeding delta 500ms is rejected: 2025-05-13T16:10:17.051461441Z vs. now: 2025-05-13T16:10:16.257113043Z
+[2m2025-05-13T16:10:16.357037Z[0m [33m WARN[0m [2mdora_node_api::event_stream::thread[0m[2m:[0m failed to update HLC: incoming timestamp from 8BEE45A8B42C4209BC5B9D6FA95B8ED6 exceeding delta 500ms is rejected: 2025-05-13T16:10:17.051461443Z vs. now: 2025-05-13T16:10:16.357028678Z
+[2m2025-05-13T16:10:16.455756Z[0m [33m WARN[0m [2mdora_node_api::event_stream::thread[0m[2m:[0m failed to update HLC: incoming timestamp from 8BEE45A8B42C4209BC5B9D6FA95B8ED6 exceeding delta 500ms is rejected: 2025-05-13T16:10:17.051461444Z vs. now: 2025-05-13T16:10:16.455749478Z
+[2m2025-05-13T16:10:30.921624Z[0m [33m WARN[0m [2mopentelemetry_system_metrics[0m[2m:[0m Could not get NVML, recording 0 for GPU memory usage
+INFO (so100_planner_node): Parsed target: XYZ=[0.3, 0.0, 0.2], EulerRPY_rad=[0.0, 0.0, 0.0]
+Retry 1
+Retry 2
+Retry 3
+Retry 4
+Retry 5
+Retry 6
+ERROR (so100_planner_node): DifferentialIK failed to find a solution.
+[2m2025-05-13T16:10:58.424936Z[0m [33m WARN[0m [2mopentelemetry_system_metrics[0m[2m:[0m Could not get NVML, recording 0 for GPU memory usage
+[2m2025-05-13T16:11:16.069134Z[0m [33m WARN[0m [2mdora_node_api::event_stream::thread[0m[2m:[0m failed to update HLC: incoming timestamp from 5F4071DA78094FAF9F056B06950F8D30 exceeding delta 500ms is rejected: 2025-05-13T16:11:17.073174444Z vs. now: 2025-05-13T16:11:16.069119416Z

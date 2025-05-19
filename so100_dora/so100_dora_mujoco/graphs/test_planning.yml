@@ -1,0 +1,43 @@
+# /home/jzzz/so100_dora/so100_dora_mujoco/graphs/test_planning.yml
+nodes:
+  - id: simple_text_commander_node
+    build: pip install -e ../nodes/simple_text_commander # 路径到包含 pyproject.toml 的目录
+    # 直接执行脚本，假设其内部的 input() 能在 Dora 环境下工作
+    # 如果 input() 仍然导致 EOFError，则考虑改为 path: dynamic 并独立启动此节点
+    path: dynamic
+    # path: /home/jzzz/miniconda3/envs/testagent/bin/python ../nodes/simple_text_commander/simple_text_commander/main.py
+    # inputs: # 如果是直接执行，并且 main.py 内部有 Dora 事件循环，可能需要 tick
+    #   tick_for_input: dora/timer/secs/1
+    outputs:
+      - text_command # 输出用户输入的原始文本命令
+
+  - id: so100_planner_node
+    build: pip install -e ../nodes/so100_planner # 路径到包含 pyproject.toml 的目录
+    # 直接执行脚本，并通过 args 传递 URDF 路径
+    # 确保下面的 URDF 文件路径是正确的，并且该 URDF 文件内部的 mesh 路径也已修正
+    path: ../nodes/so100_planner/so100_planner/main.py 
+          # --base-link Base # 可选，如果 URDF 中的基座连杆不是 "Base"
+          # --ee-link Fixed_Jaw # 可选，如果末端连杆不是 "Fixed_Jaw"
+    env: # <--- 使用 env 传递 URDF 路径
+      URDF_PATH: ../models/urdf/SO_5DOF_ARM100_8j_URDF.SLDASM.urdf # <--- 假设你将 5DOF URDF 放在这里并命名
+      BASE_LINK_NAME: "Base"
+      EE_LINK_NAME: "Fixed_Jaw"
+      CONFIG_FOR_PLANNER_JOINT_NAMES: ../configs/so100_config.json
+    inputs:
+      target_cartesian_pose_command: simple_text_commander_node/text_command
+      current_joint_state_from_mujoco: so100_mujoco_client_node/position # 从 mujoco 获取当前关节位置 (6个值)
+    outputs:
+      - goal_joint_positions_to_mujoco # 输出给 MuJoCo 的目标关节位置 (6个值)
+
+  - id: so100_mujoco_client_node
+    build: pip install -e ../nodes/so100_mujoco_client # 路径到包含 pyproject.toml 的目录
+    path: ../nodes/so100_mujoco_client/main.py # 直接执行
+    env:
+      SCENE: ../models/so_arm100.xml
+      CONFIG: ../configs/so100_config.json # 这个 config 应该仍然是 6 个关节的
+    inputs:
+      tick: dora/timer/millis/20 # 用于 MuJoCo 仿真步进
+      write_goal_position: so100_planner_node/goal_joint_positions_to_mujoco # 接收6个关节目标
+      pull_position: dora/timer/millis/100 # 让 mujoco client 定期发送当前位置 (6个值)
+    outputs:
+      - position # 输出当前关节位置 (6个值)

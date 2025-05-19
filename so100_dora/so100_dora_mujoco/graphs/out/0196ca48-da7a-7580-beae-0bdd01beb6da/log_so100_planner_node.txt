@@ -1,0 +1,29 @@
+Traceback (most recent call last):
+  File "/home/jzzz/so100_dora/so100_dora_mujoco/nodes/so100_planner/so100_planner/main.py", line 69, in __init__
+    for i in range(len(self.mujoco_arm_joint_names)):
+AttributeError: 'Planner' object has no attribute 'mujoco_arm_joint_names'
+Traceback (most recent call last):
+  File "/home/jzzz/so100_dora/so100_dora_mujoco/nodes/so100_planner/so100_planner/main.py", line 327, in <module>
+    main()
+  File "/home/jzzz/so100_dora/so100_dora_mujoco/nodes/so100_planner/so100_planner/main.py", line 320, in main
+    planner = Planner(args.name, final_urdf_path, final_base_link, final_ee_link)
+  File "/home/jzzz/so100_dora/so100_dora_mujoco/nodes/so100_planner/so100_planner/main.py", line 69, in __init__
+    for i in range(len(self.mujoco_arm_joint_names)):
+AttributeError: 'Planner' object has no attribute 'mujoco_arm_joint_names'
+INFO (Planner Main): CWD: /home/jzzz/so100_dora/so100_dora_mujoco/graphs
+INFO (Planner Main): URDF: '../models/urdf/SO_5DOF_ARM100_8j_URDF.SLDASM.urdf', EE: 'Fixed_Jaw'
+INFO (Planner Main): Joint Config for Planner: '../configs/so100_config.json'
+INFO (so100_planner_node): Initializing planner with Pinocchio and PyRoboPlan DifferentialIK.
+INFO (so100_planner_node): Loading URDF from: ../models/urdf/SO_5DOF_ARM100_8j_URDF.SLDASM.urdf
+Attempting to load URDF using pinocchio (version 3.4.0)...
+INFO (so100_planner_node): Pinocchio model loaded successfully using pinocchio.buildModelFromUrdf. Name: SO_5DOF_ARM100_8j_URDF.SLDASM
+INFO (so100_planner_node): nq (config size): 6, nv (velocity size): 6
+DEBUG (so100_planner_node): Pinocchio Model Joint Details:
+  Joint Name (Pinocchio Link Name): Rotation, Joint Type: JointModelRY, nq: 1, idx_q: 0, URDF Joint Name (Expected): Rotation
+  Joint Name (Pinocchio Link Name): Pitch, Joint Type: JointModelRX, nq: 1, idx_q: 0, URDF Joint Name (Expected): Pitch
+  Joint Name (Pinocchio Link Name): Elbow, Joint Type: JointModelRX, nq: 1, idx_q: 1, URDF Joint Name (Expected): Elbow
+  Joint Name (Pinocchio Link Name): Wrist_Pitch, Joint Type: JointModelRX, nq: 1, idx_q: 2, URDF Joint Name (Expected): Wrist_Pitch
+  Joint Name (Pinocchio Link Name): Wrist_Roll, Joint Type: JointModelRY, nq: 1, idx_q: 3, URDF Joint Name (Expected): Wrist_Roll
+  Joint Name (Pinocchio Link Name): Jaw, Joint Type: JointModelRZ, nq: 1, idx_q: 4, URDF Joint Name (Expected): Jaw
+DEBUG (so100_planner_node): Mapped Arm Joint Indices in Pinocchio q-vector:
+ERROR (so100_planner_node): Error initializing Pinocchio/PyRoboPlan: 'Planner' object has no attribute 'mujoco_arm_joint_names'

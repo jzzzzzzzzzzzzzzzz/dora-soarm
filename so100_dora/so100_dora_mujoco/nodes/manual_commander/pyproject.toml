@@ -1,0 +1,29 @@
+# nodes/manual_commander/pyproject.toml
+[project]
+name = "manual-commander"
+version = "0.1.0"
+authors = [{ name = "Your Name", email = "you@example.com"}]
+description = "Dora Node to send manual joint commands."
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "Apache-2.0" }
+
+dependencies = [
+  "dora-rs >= 0.3.5",
+  "pyarrow >= 10.0",
+  "numpy >= 1.20"
+]
+
+[project.scripts]
+manual-commander = "main:main" # 脚本入口点
+
+# --- 添加 tool.poetry.packages ---
+[tool.poetry]
+packages = [
+    { include = "main.py" }
+]
+# --- 添加结束 ---
+
+[build-system]
+requires = ["poetry-core>=1.8.0"]
+build-backend = "poetry.core.masonry.api"
