@@ -7,7 +7,7 @@ import os
 import argparse
 import time
 import json
-import numpy as np # 添加 numpy
+import numpy as np 
 import pyarrow as pa
 
 from dora import Node
@@ -18,9 +18,6 @@ import mujoco.viewer
 class Client:
 
     def __init__(self, config: dict[str, any]):
-        # ... (你的 Client.__init__ 内容) ...
-        # 确保这里使用了 config['name'], config['scene'], config['joints'] (如果 joints 在 bus 中)
-        # 或者 config['config_file_path'] (如果传递的是配置文件路径)
         print(f"DEBUG (Node {config.get('name', 'UNKNOWN_CLIENT')}): Client __init__ CALLED.")
         self.config = config
         self.node = Node(config["name"])
@@ -106,7 +103,6 @@ class Client:
             print(f"ERROR (Node {node_name_log}): Failed processing write_goal_position: {e}")
 
     def run(self):
-        # ... (你的 run 内容，确保 launch_passive 被调用) ...
         node_name_log = self.config.get('name', 'UNKNOWN_CLIENT')
         print(f"DEBUG (Node {node_name_log}): Client run() CALLED.")
         try:
@@ -141,7 +137,6 @@ class Client:
 def main():
     print("DEBUG: so100_mujoco_client main() function CALLED.")
 
-    # --- argparse 和 bus 字典创建逻辑应该在这里，并且只出现一次 ---
     parser = argparse.ArgumentParser(
         description="MujoCo Client Node"
     )
@@ -158,7 +153,7 @@ def main():
     args = parser.parse_args()
 
     # 获取 SCENE 和 CONFIG 路径
-    # Dora 会将 YAML 中 env 定义的 SCENE 和 CONFIG 设置为环境变量
+    # 将 YAML 中 env 定义的 SCENE 和 CONFIG 设置为环境变量
     # argparse 的 default 只有在环境变量不存在时才生效
     scene_path_from_env = os.getenv("SCENE")
     config_path_from_env = os.getenv("CONFIG")
@@ -171,11 +166,7 @@ def main():
         raise ValueError("SCENE path is required either via YAML env or --scene argument.")
     if not final_config_path:
         raise ValueError("CONFIG path is required either via YAML env or --config argument.")
-
-    # YAML 中的路径是相对于 YAML 文件的。当 main.py 执行时，如果这些是相对路径，
-    # os.path.exists 可能无法正确找到它们，除非 CWD 正确。
-    # Client.__init__ 中会进行更严格的 os.path.exists 检查。
-    # 这里我们假设 Dora 传递的环境变量已经是可用的路径，或者 Client.__init__ 能处理。
+    
     print(f"DEBUG: Using Scene from env/arg: {final_scene_path}")
     print(f"DEBUG: Using Config from env/arg: {final_config_path}")
     print(f"DEBUG: Current working directory for main(): {os.getcwd()}")
@@ -186,7 +177,6 @@ def main():
         "name": args.name,
         "scene": final_scene_path,
         "config_file_path": final_config_path, # 将配置文件路径传递给 Client
-        # "joints" 数组的创建移到 Client.__init__ 内部，因为它需要读取配置文件
     }
     # --- bus 字典创建结束 ---
 
@@ -194,7 +184,7 @@ def main():
 
     try:
         print(f"DEBUG: Attempting to create Client instance for node: {bus.get('name', 'UNKNOWN_BUS_NAME')}")
-        client = Client(bus) # 现在 bus 肯定已经被赋值了
+        client = Client(bus) 
         print("DEBUG: Client instance created. Calling client.run().")
         client.run()
         print("DEBUG: client.run() completed.")

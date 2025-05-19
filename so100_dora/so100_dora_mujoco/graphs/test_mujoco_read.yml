@@ -1,14 +1,11 @@
 # graphs/test_mujoco_read.yml
 nodes:
   - id: so100_mujoco_client
-    # 添加 build 命令：进入节点目录并使用 poetry 安装依赖和脚本
-    # 确保 poetry 在你的环境中已安装 (pip install poetry)
     build: pip install -e ../nodes/so100_mujoco_client
-    # 使用 path 指定 poetry 创建的脚本名称 (来自 pyproject.toml)
     path: ../nodes/so100_mujoco_client/main.py
     env:
-      # SCENE: ../models/so_arm100_scene.xml # 或使用旧的
-      SCENE: ../models/so_arm100_scene_combined.xml # 使用合并后的文件
+      # SCENE: ../models/so_arm100_scene.xml 
+      SCENE: ../models/so_arm100_scene_combined.xml # 合并后的文件
       CONFIG: ../configs/so100_config.json
     inputs:
       tick: dora/timer/millis/100
@@ -18,9 +15,3 @@ nodes:
       - position
       - velocity
 
-  # - id: printer
-  #   # 对于内置工具，仍然使用 path 指定其名称
-  #   path: dora
-  #   inputs:
-  #     joint_positions: so100_mujoco_client/position
-  #     joint_velocities: so100_mujoco_client/velocity
